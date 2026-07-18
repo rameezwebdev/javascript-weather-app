@@ -20,9 +20,8 @@ const getweatherdata = async () => {
         console.log(data);
         const { main, name, weather, wind, sys, dt} = data;
         cityName.innerHTML = `${name},${getcountryname(sys.country)}`;
-
-
-    } catch (error) {
+    }
+    catch (error) {
         console.log(error);
     }
 };
