@@ -40,9 +40,13 @@ const getweatherdata = async () => {
         const data =await res.json();
         console.log(data);
         const { main, name, weather, wind, sys, dt} = data;
+        let icons = weather[0].icon;
+        console.log(icons); 
         cityName.innerHTML = `${name},${getcountryname(sys.country)}`;
         dateTime.innerHTML = gettimetable(dt);
-        forecast.innerHTML = weather.icon;
+        forecast.innerHTML = `${weather[0].main}`;
+        w_icon.innerHTML = `<img src=http://openweathermap.org/img/wn/${weather[0].icon}@4x.png />`;
+        
         w_tem.innerHTML = `${main.temp}&#176`;
         w_min.innerHTML = `Min:${main.temp_min}&#176`;
         w_max.innerHTML = `Max:${main.temp_max.toFixed()}&#176`;
