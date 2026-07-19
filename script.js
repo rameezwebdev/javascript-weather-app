@@ -5,6 +5,10 @@ let w_icon = document.querySelector('.weather_icon');
 let w_tem = document.querySelector('.weather_tem');
 let w_min = document.querySelector('.weather_min');
 let w_max = document.querySelector('.weather_max');
+let w_feellike = document.querySelector('.weather_feelslike');
+let w_humidity = document.querySelector('.weather_humidity');
+let w_wind = document.querySelector('.weather_wind');
+let w_pressure = document.querySelector('.weather_pressure');
 
 //to convert country code to its complete name by using international api
 const getcountryname = (code) => {
@@ -38,6 +42,14 @@ const getweatherdata = async () => {
         const { main, name, weather, wind, sys, dt} = data;
         cityName.innerHTML = `${name},${getcountryname(sys.country)}`;
         dateTime.innerHTML = gettimetable(dt);
+        forecast.innerHTML = weather.icon;
+        w_tem.innerHTML = `${main.temp}&#176`;
+        w_min.innerHTML = `Min:${main.temp_min}&#176`;
+        w_max.innerHTML = `Max:${main.temp_max.toFixed()}&#176`;
+        w_feellike.innerHTML = `${main.feels_like}&#176`;
+        w_humidity.innerHTML = `${main.humidity}%`;
+        w_wind.innerHTML = `${wind.speed}km/h`;
+        w_pressure.innerHTML = `${main.pressure}hPa`;
     }
     catch (error) {
         console.log(error);
