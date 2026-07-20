@@ -9,6 +9,27 @@ let w_feellike = document.querySelector('.weather_feelslike');
 let w_humidity = document.querySelector('.weather_humidity');
 let w_wind = document.querySelector('.weather_wind');
 let w_pressure = document.querySelector('.weather_pressure');
+let w_search = document.querySelector('.weather_search');
+
+let targetCity = "Ali pur";
+
+
+
+//get input data
+w_search.addEventListener('submit', (e) => {
+   e.preventDefault();
+   
+   
+   let cityInput = document.querySelector('.city_name');
+  
+   if(cityInput.value.trim() !== "") {
+      targetCity = cityInput.value; 
+        console.log("Searching for:", targetCity); 
+        getweatherdata(); 
+        cityInput.value = ""; 
+    }
+
+});
 
 //to convert country code to its complete name by using international api
 const getcountryname = (code) => {
@@ -33,7 +54,7 @@ const gettimetable = (e) => {
 };
 
 const getweatherdata = async () => {
-    const weatherkey = `https://api.openweathermap.org/data/2.5/weather?q=ali pur&appid=e656d481339ceabc8bd668d02d890e22&units=metric`;
+    const weatherkey = `https://api.openweathermap.org/data/2.5/weather?q=${targetCity}&appid=e656d481339ceabc8bd668d02d890e22&units=metric`;
 
     try {
         const res =await fetch(weatherkey);
