@@ -110,9 +110,10 @@ body{
 }
 
 .weather_icon{
-    font-size:95px;
-    color:#fbbf24;
-    margin-bottom:10px;
+       height: 100px;
+       width: auto;
+       margin-bottom: 40px;
+       margin-top: 0px;
 }
 
 .weather_tem{
