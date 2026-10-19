@@ -66,7 +66,7 @@ const getweatherdata = async () => {
         cityName.innerHTML = `${name},${getcountryname(sys.country)}`;
         dateTime.innerHTML = gettimetable(dt);
         forecast.innerHTML = `${weather[0].main}`;
-        w_icon.innerHTML = `<img src=http://openweathermap.org/img/wn/${weather[0].icon}@4x.png />`;
+        w_icon.innerHTML = `<img src=https://openweathermap.org/img/wn/${weather[0].icon}@4x.png />`;
         
         w_tem.innerHTML = `${main.temp}&#176`;
         w_min.innerHTML = `Min:${main.temp_min}&#176`;
